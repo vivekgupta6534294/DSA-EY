@@ -1,0 +1,32 @@
+// approach : take from last 
+
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int first=m-1;
+        int sec=n-1;
+        // int ind=n+m-1;
+        for(int i=m+n-1;i>=0;i--){
+            if(first==-1){// ager sec sorted aur greater ho wala case 
+                nums1[i]=nums2[sec];
+                sec--;
+                continue;
+            }else if(sec==-1){
+                 nums1[i]=nums1[first];
+                first--;
+                continue;
+                
+            }
+            if(nums1[first]>nums2[sec]){
+                nums1[i]=nums1[first];
+                first--;
+            }else{
+                nums1[i]=nums2[sec];
+                sec--;
+            }
+            // ind--;
+        }
+    
+        
+        
+    }
+}
